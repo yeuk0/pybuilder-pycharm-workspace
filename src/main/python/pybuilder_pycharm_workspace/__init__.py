@@ -74,7 +74,10 @@ def add_project_interpreter(project, logger):
 	"""
 	logger.info(msg.INTERPRETER_START)
 
-	pycharm_config_path = list(Path.home().glob(f".PyCharm{project.get_property('pycharm_workspace_main_version')}.*"))[-1:]
+	for directory in [".PyCharm", ".PyCharmCE"]:
+		pycharm_config_path = list(Path.home().glob(f"{directory}{project.get_property('pycharm_workspace_main_version')}*"))[-1:]
+		if len(pycharm_config_path):
+			break
 	if not len(pycharm_config_path):
 		raise NoPyCharmConfigDirError
 	pycharm_config_path = pycharm_config_path[0]
