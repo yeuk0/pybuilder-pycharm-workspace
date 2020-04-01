@@ -13,6 +13,8 @@
 #   See the License for the specific language governing permissions and
 #   limitations under the License.
 
+import re
+
 from pybuilder_pycharm_workspace.errors import WritingFileError
 
 
@@ -32,3 +34,20 @@ def fill_and_write_template(template, output_path, **fields):
 			project_file.write(project_metadata)
 	except:
 		raise WritingFileError(template, output_path)
+
+
+def underscore(word):
+	"""
+	``underscore()`` function taken from ``inflection`` library.
+
+	More information:
+		https://inflection.readthedocs.io/en/latest/#inflection.underscore
+
+	:param str word: Text to process
+	:return: Underscored word with no hyphens and lowercased.
+	:rtype: str
+	"""
+	word = re.sub(r"([A-Z]+)([A-Z][a-z])", r"\1_\2", word)
+	word = re.sub(r"([a-z\d])([A-Z])", r"\1_\2", word)
+	word = word.replace('-', '_')
+	return word.lower()

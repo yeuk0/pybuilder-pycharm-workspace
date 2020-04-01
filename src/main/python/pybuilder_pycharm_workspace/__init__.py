@@ -21,7 +21,7 @@ from pybuilder.core import init, task
 import pybuilder_pycharm_workspace.constants as const
 import pybuilder_pycharm_workspace.messages as msg
 from pybuilder_pycharm_workspace.errors import MissingPropertyError, NoPyCharmConfigDirError
-from pybuilder_pycharm_workspace.helpers import fill_and_write_template
+from pybuilder_pycharm_workspace.helpers import fill_and_write_template, underscore
 from pybuilder_pycharm_workspace.resources import templates as templates
 
 
@@ -138,7 +138,7 @@ def add_project_idea_directory(project, logger):
 	integration_tests = templates.IML_SOURCEFOLDER_TEMPLATE.format(
 		directory=project.get_property('dir_source_integrationtest_python')) if project.get_property('dir_source_integrationtest_python') else ''
 	fill_and_write_template(templates.IML_FILE, pycharm_idea_directory / const.IML_FILENAME,
-	                        **{ 'source_dir': str(Path(project.get_property('dir_source_main_python')).as_posix()),
+	                        **{ 'source_dir': Path('src').as_posix() / underscore(project.name),
                                 'unit_tests': unit_tests,
 	                            'integration_tests': integration_tests,
 	                            'output_directory': project.get_property('dir_target') })

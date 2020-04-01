@@ -19,7 +19,7 @@ use_plugin('python.core')
 use_plugin('python.distutils')
 
 name = 'pybuilder-pycharm-workspace'
-version = '0.1.1'
+version = '0.1.2'
 license = "Apache License, Version 2.0"
 
 authors = [Author("Diego BM", 'diegobm92@gmail.com')]
