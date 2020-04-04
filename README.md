@@ -28,7 +28,7 @@ Configure the plugin within your `init` function:
 @init
 def initialise(project):
     project.set_property('pycharm_workspace_main_version', '2019')
-    project.set_property('pycharm_workspace_project_path', Path(__file__).parent)
+    project.set_property('pycharm_workspace_project_path', project_path)
 ```
 
 This will tell the plugin what version of PyCharm will be used to work with the project and which is the project
@@ -39,6 +39,11 @@ Launch the task with:
 ```console
 (venv) C:\Users\foo\PycharmProjects\bar> pyb_ pycharm_workspace_generate
 ```
+
+It's recommended to keep PyCharm closed during `pycharm_workspace_generate` task execution to force PyCharm's
+ indexing process in order to load new interpreter configuration properly once you open the project .
+
+Not doing this may cause the new interpreter not being recognised by the IDE.
 
 ### `build.py` file recommended
 
@@ -59,7 +64,9 @@ use_plugin('python.distutils')
 
 use_plugin('pypi:pybuilder_pycharm_workspace')
 
-name = Path(__file__).parent.name
+project_path = Path(__file__).resolve().parent
+
+name = project_path.name
 authors = [Author("foo", 'bar')]
 license = "Apache License, Version 2.0"
 version = '1.0.0'
@@ -67,7 +74,7 @@ version = '1.0.0'
 
 @init
 def initialise(project):
-    project.set_property('pycharm_workspace_project_path', Path(__file__).parent)
+    project.set_property('pycharm_workspace_project_path', project_path)
 
 
 # Most important part of the script below (previous one is just filling code)
