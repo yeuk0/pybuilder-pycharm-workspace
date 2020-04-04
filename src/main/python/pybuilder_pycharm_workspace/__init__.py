@@ -138,7 +138,7 @@ def add_project_idea_directory(project, logger):
 	integration_tests = templates.IML_SOURCEFOLDER_TEMPLATE.format(
 		directory=project.get_property('dir_source_integrationtest_python')) if project.get_property('dir_source_integrationtest_python') else ''
 	fill_and_write_template(templates.IML_FILE, pycharm_idea_directory / const.IML_FILENAME,
-	                        **{ 'source_dir': Path('src').as_posix() / underscore(project.name),
+	                        **{ 'source_dir': (Path('src') / underscore(project.name)).as_posix(),
                                 'unit_tests': unit_tests,
 	                            'integration_tests': integration_tests,
 	                            'output_directory': project.get_property('dir_target') })
