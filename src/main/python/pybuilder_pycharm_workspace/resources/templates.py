@@ -1,20 +1,20 @@
 INTERPRETER = """
 <jdk version="2">
-    <name value="Python ({project_name})" />
-    <type value="Python SDK" />
-    <homePath value="{project_path}\\venv\Scripts\python.exe" />
-    <roots>
-        <classPath>
-            <root type="composite">
-                <root url="file://$USER_HOME$/PycharmProjects/{project_name}/venv" type="simple" />
-                <root url="file://$USER_HOME$/PycharmProjects/{project_name}/venv/Lib/site-packages" type="simple" />
-            </root>
-        </classPath>
-        <sourcePath>
-            <root type="composite" />
-        </sourcePath>
-    </roots>
-    <additional ASSOCIATED_PROJECT_PATH="$USER_HOME$/PycharmProjects/{project_name}" />
+  <name value="Python ({project_name})" />
+  <type value="Python SDK" />
+  <homePath value="{project_path}\\venv\Scripts\python.exe" />
+  <roots>
+    <classPath>
+      <root type="composite">
+        <root url="file://$USER_HOME$/PycharmProjects/{project_name}/venv" type="simple" />
+        <root url="file://$USER_HOME$/PycharmProjects/{project_name}/venv/Lib/site-packages" type="simple" />
+      </root>
+    </classPath>
+    <sourcePath>
+      <root type="composite" />
+    </sourcePath>
+  </roots>
+  <additional ASSOCIATED_PROJECT_PATH="$USER_HOME$/PycharmProjects/{project_name}" />
 </jdk>
 """
 
@@ -38,7 +38,7 @@ IML_FILE = """
   </component>
 </module>"""
 IML_SOURCEFOLDER_TEMPLATE = """
-<sourceFolder url="file://$MODULE_DIR$/{directory}" isTestSource="true" />"""
+      <sourceFolder url="file://$MODULE_DIR$/{directory}" isTestSource="true" />"""
 
 MODULES_FILE = """
 <?xml version="1.0" encoding="UTF-8"?>
@@ -53,9 +53,6 @@ MODULES_FILE = """
 MISC_FILE = """
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="JavaScriptSettings">
-    <option name="languageLevel" value="ES6" />
-  </component>
   <component name="ProjectRootManager" version="2" project-jdk-name="{project_interpreter_name}" project-jdk-type="Python SDK" />
 </project>"""
 
