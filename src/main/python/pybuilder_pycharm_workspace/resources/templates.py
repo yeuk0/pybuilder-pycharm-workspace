@@ -32,9 +32,6 @@ IML_FILE = """
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
-  <component name="PyDocumentationSettings">
-    <option name="myDocStringFormat" value="Plain" />
-  </component>
   <component name="TestRunnerService">
     <option name="projectConfiguration" value="Unittests" />
     <option name="PROJECT_TEST_RUNNER" value="Unittests" />
