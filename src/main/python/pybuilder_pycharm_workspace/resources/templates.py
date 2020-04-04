@@ -29,7 +29,7 @@ IML_FILE = """
       <excludeFolder url="file://$MODULE_DIR$/target/dist" />
       <excludeFolder url="file://$MODULE_DIR$/venv" />
     </content>
-    <orderEntry type="inheritedJdk" />
+    <orderEntry type="jdk" jdkName="{project_interpreter_name}" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="TestRunnerService">

@@ -141,6 +141,7 @@ def add_project_idea_directory(project, logger):
 	                        **{ 'source_dir': (Path('src') / underscore(project.name)).as_posix(),
                                 'unit_tests': unit_tests,
 	                            'integration_tests': integration_tests,
+								'project_interpreter_name': project.get_property('pycharm_workspace_project_interpreter_name'),
 	                            'output_directory': project.get_property('dir_target') })
 
 	logger.debug(msg.WORKSPACE_CREATING_FILE.format(file_name=const.MODULES_FILENAME))
